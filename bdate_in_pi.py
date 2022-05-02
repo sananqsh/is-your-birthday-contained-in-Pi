@@ -32,9 +32,12 @@ else:
 try:
     with open(file_path) as pi:
         lines = pi.readlines()
-        bdate = input("Enter your birthday(mmddyy): ")
 except FileNotFoundError:
     print(f"file '{file_path}' does not exist!")
+
+bdate = input("Enter your birthday(mmddyy): ")
+if (not bdate.isdigit() or len(bdate) != 8):
+    print("Most probably not a date, but whatever...")
 
 pi_str = "3"
 for line in lines:
